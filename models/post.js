@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Post.belongsTo(models.User, { foreignKey: 'userId' })
+      Post.hasMany(models.Comment, { foreignKey: 'postId' })
     }
   }
   Post.init(
@@ -25,7 +27,11 @@ module.exports = (sequelize, DataTypes) => {
       userId: {
         allowNull: false,
         type: DataTypes.INTEGER,
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       }
     },
     {
