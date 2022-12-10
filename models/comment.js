@@ -19,7 +19,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
       },
-      likes: DataTypes.INTEGER,
+      likes: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+        validate: {
+          min: 0
+        }
+      },
       userId: {
         allowNull: false,
         type: DataTypes.INTEGER,
