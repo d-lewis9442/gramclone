@@ -59,12 +59,30 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: black;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalX {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 10px;
 }
 
 .modal-content {
-  width: 50vw;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
   background-color: white;
+}
+
+.modal img{
+  width: 50vw;
+}
+
+.modal-info {
+  padding-left: 20px;
 }

@@ -11,8 +11,6 @@ function App() {
   let navigate = useNavigate()
   const [user, setUser] = useState(null)
 
-  console.log(user)
-
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
