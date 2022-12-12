@@ -1,5 +1,70 @@
-.sign-in {
+.App {
+  text-align: center;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 6vw 94vw;
+}
+
+.feed {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
 
+.display-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.explore-post {
+  width: 25vw;
+  margin: 10px
+}
+
+.explore-post img {
+  width: 25vw;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navlink {
+  max-width: 3vw;
+  margin: 5px;
+}
+
+.sticky-nav {
+  max-width: 6vw;
+  position: sticky;
+  left: 0;
+  height: 100vh;
+  border-right: 1px solid black;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-content {
+  width: 50vw;
+  background-color: white;
 }
