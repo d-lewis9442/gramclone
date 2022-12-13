@@ -19,20 +19,18 @@ const Modal = ({ show, selectedPost, onClose }) => {
             <img src={selectedPost.image} alt={selectedPost.name} />
           </div>
           <div className="modal-info">
-            <p>
-              <img src={selectedPost.User.image} className="rounded" />{' '}
-              <p className="username">{selectedPost.User.username}</p>
-              <p>{selectedPost.body}</p>
-            </p>
-            <hr
-              style={{
-                background: 'black',
-                height: '1px',
-                border: 'none',
-                width: '15vw'
-              }}
-            ></hr>
-
+            <div className="comment">
+              <div>
+                <img src={selectedPost.User.image} className="rounded" />
+              </div>
+              <div>
+                <p className="username">{selectedPost.User.username}</p>
+              </div>
+              <div>
+                <p className="body">{selectedPost.body}</p>
+              </div>
+            </div>
+            <hr></hr>
             {comments
               ? comments.map((comment) => (
                   <CommentCard key={comment.id} comment={comment} />

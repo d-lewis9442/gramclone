@@ -16,7 +16,7 @@ const SignIn = ({ setUser }) => {
     const payload = await SignInUser(formValues)
     setUser(payload)
     setFromValues(initialState)
-    navigate('/home')
+    navigate('/home/feed')
   }
   return (
     <div className="form">

@@ -8,3 +8,12 @@ export const getRecents = async () => {
     throw error
   }
 }
+
+export const populateFeed = async (id) => {
+  try {
+    const response = await Client.get(`/user/${id}`)
+    return response
+  } catch (error) {
+    throw error
+  }
+}

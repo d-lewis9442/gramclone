@@ -7,10 +7,24 @@
   grid-template-columns: 6vw 94vw;
 }
 
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feed-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .feed {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 80vh;
+  width: 80vw;
 }
 
 .display-grid {
@@ -75,25 +89,46 @@
 .modal-content {
   display: flex;
   flex-wrap: wrap;
-  width: 80vw;
+  width: auto;
+  height: 50vh;
   background-color: white;
 }
 
 .modal img{
-  width: 50vw;
+  height: 50vh;
 }
 
 .modal-info {
+  height: 50vh;
+  width: 20vw;
   padding-left: 20px;
-  width: auto
+  overflow: auto;
 }
 
 .modal-info img {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%
 }
 
 .username {
-  font-weight: bold
+  font-weight: bold;
+  font-size: .80em
+}
+
+.body {
+  font-size: .80em
+}
+
+.hr {
+  background: black;
+  height: 1px;
+  border: none;
+  width: 20vw
+}
+
+.comment {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
 }
