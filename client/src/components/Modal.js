@@ -1,22 +1,39 @@
-const Modal = (props) => {
-  if (!props.show) {
+import CommentCard from './CommentCard'
+
+const Modal = ({ show, selectedPost, onClose }) => {
+  if (!show) {
     return null
   }
-  console.log(props.selectedPost)
+
+  let comments = selectedPost.Comments
+  console.log(comments)
 
   return (
     <div className="modal">
-      <h1 onClick={() => props.onClose()} className="modalX">
+      <h1 onClick={() => onClose()} className="modalX">
         X
       </h1>
-      {props.selectedPost ? (
+      {selectedPost ? (
         <div className="modal-content">
           <div className="modal-image">
-            <img src={props.selectedPost.image} alt={props.selectedPost.name} />
+            <img src={selectedPost.image} alt={selectedPost.name} />
           </div>
           <div className="modal-info">
-            <h1>{props.selectedPost.User.username}</h1>
+            <h4>{selectedPost.User.username}</h4>
+            <hr
+              style={{
+                background: 'black',
+                height: '1px',
+                border: 'none',
+                width: '15vw'
+              }}
+            ></hr>
           </div>
+          {comments
+            ? comments.forEach((comment) => {
+                ;<CommentCard />
+              })
+            : null}
         </div>
       ) : null}
     </div>

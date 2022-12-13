@@ -9,7 +9,6 @@ const Explore = () => {
 
   const getExplore = async () => {
     const posts = await getRecents()
-    console.log(posts.data)
     setPosts(posts.data)
   }
 
@@ -19,16 +18,9 @@ const Explore = () => {
     getExplore()
   }, [])
 
-  // const handleClick = (id) => {
-  //   setShow(true)
-  //   selectPost(posts.id)
-  //   console.log(selectPost)
-  // }
-
   const selectPost = (id) => {
     if (posts) {
       const clickPost = posts.find((post) => post.id === id)
-      // setSelectedPost(posts.data.find((post) => post.id === id))
       setSelectedPost(clickPost)
       setShow(true)
     }

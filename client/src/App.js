@@ -38,7 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/home/*" element={<Home />} />
+          <Route path="/home/*" element={<Home user={user} />} />
         </Routes>
       </section>
     </div>
