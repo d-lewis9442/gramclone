@@ -114,6 +114,7 @@
   border-radius: 50%
 }
 
+
 .username {
   font-weight: bold;
   font-size: .80em
@@ -134,4 +135,17 @@
   display: flex;
   gap: 5px;
   margin-top: 5px;
+}
+
+.post-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.post-image img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }

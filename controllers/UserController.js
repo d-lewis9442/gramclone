@@ -17,7 +17,9 @@ const GetUserById = async (req, res) => {
       order: [['createdAt', 'DESC']]
     })
     res.send(user)
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 }
 
 const FollowUser = async (req, res) => {
