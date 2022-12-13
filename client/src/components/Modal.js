@@ -29,11 +29,13 @@ const Modal = ({ show, selectedPost, onClose }) => {
               }}
             ></hr>
           </div>
-          {comments
-            ? comments.forEach((comment) => {
-                ;<CommentCard />
-              })
-            : null}
+          <div>
+            {comments
+              ? comments.forEach((comment) => {
+                  ;<CommentCard />
+                })
+              : null}
+          </div>
         </div>
       ) : null}
     </div>

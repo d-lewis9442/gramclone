@@ -3,7 +3,7 @@ const { Post, Comment, User } = require('../models')
 const GetRecentPosts = async (req, res) => {
   try {
     const recents = await Post.findAll({
-      include: [{ all: true }],
+      include: [{ all: true, nested: true }],
       order: [['createdAt', 'DESC']]
     })
     res.send(recents)
