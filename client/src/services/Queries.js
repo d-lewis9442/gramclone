@@ -17,3 +17,12 @@ export const populateFeed = async (id) => {
     throw error
   }
 }
+
+export const getPostDetails = async (id) => {
+  try {
+    const response = await Client.get(`/posts/${id}`)
+    return response
+  } catch (error) {
+    throw error
+  }
+}

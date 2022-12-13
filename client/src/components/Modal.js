@@ -6,7 +6,6 @@ const Modal = ({ show, selectedPost, onClose }) => {
   }
 
   let comments = selectedPost.Comments
-  console.log(selectedPost)
 
   return (
     <div className="modal">
@@ -20,8 +19,8 @@ const Modal = ({ show, selectedPost, onClose }) => {
           </div>
           <div className="modal-info">
             <div className="comment">
-              <div>
-                <img src={selectedPost.User.image} className="rounded" />
+              <div classname="post-image">
+                <img src={selectedPost.User.image} />
               </div>
               <div>
                 <p className="username">{selectedPost.User.username}</p>
@@ -31,11 +30,9 @@ const Modal = ({ show, selectedPost, onClose }) => {
               </div>
             </div>
             <hr></hr>
-            {comments
-              ? comments.map((comment) => (
-                  <CommentCard key={comment.id} comment={comment} />
-                ))
-              : null}
+            {comments?.map((comment) => (
+              <CommentCard key={comment.id} comment={comment} />
+            ))}
           </div>
         </div>
       ) : null}

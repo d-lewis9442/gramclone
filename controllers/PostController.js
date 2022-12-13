@@ -15,7 +15,7 @@ const GetRecentPosts = async (req, res) => {
 const GetPostDetails = async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.post_id, {
-      include: Comment
+      include: [{ all: true, nested: true }]
     })
     res.send(post)
   } catch (error) {

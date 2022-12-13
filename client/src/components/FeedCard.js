@@ -1,34 +1,32 @@
 import { useEffect, useState } from 'react'
+import { getPostDetails } from '../services/Queries'
 import CommentCard from './CommentCard'
 
-const FeedCard = ({ post, users }) => {
-  const [user, setUser] = useState(null)
-  // console.log(users)
-  console.log(post)
+const FeedCard = ({ post }) => {
+  const [data, setData] = useState(null)
 
-  const getData = () => {
-    users.forEach((index) => {
-      console.log(index)
-      if (index.id === post.userId) setUser(index)
-    })
+  const postDetails = async () => {
+    if (post) {
+      const id = post.id
+      const response = await getPostDetails(id)
+      setData(response.data)
+    }
   }
-  console.log(user)
 
-  let comments = post.Comments
-  console.log(comments)
+  let comments = data?.Comments
 
   useEffect(() => {
-    getData()
+    postDetails()
   }, [])
 
   return (
     <div className="feed-card">
       <div className="post-header">
         <div className="post-image">
-          <img src={user?.image} />
+          <img src={data?.User.image} />
         </div>
         <div>
-          <p className="username">{user?.username}</p>
+          <p className="username">{data?.User.username}</p>
         </div>
       </div>
       <div className="feed-card-image">
@@ -36,13 +34,13 @@ const FeedCard = ({ post, users }) => {
       </div>
       <div>
         <div className="post-header">
-          <p className="username">{user?.username}</p>
-          <p className="body">{post.body}</p>
+          <p className="username">{data?.User.username}</p>
+          <p className="body">{data?.body}</p>
         </div>
         <div>
-          {/* {comments?.map((comment) => (
+          {comments?.map((comment) => (
             <CommentCard key={comment.id} comment={comment} />
-          ))} */}
+          ))}
         </div>
       </div>
     </div>

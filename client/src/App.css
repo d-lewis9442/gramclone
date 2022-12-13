@@ -55,6 +55,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 6vw;
 }
 
 .navlink {
@@ -142,7 +143,6 @@
   gap: 10px;
   align-items: center;
 }
-
 
 .post-image img {
   width: 35px;

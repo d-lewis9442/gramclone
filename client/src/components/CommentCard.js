@@ -1,8 +1,7 @@
 const CommentCard = ({ comment }) => {
-  console.log(comment)
   return (
     <div key={comment.id} className="comment">
-      <div>
+      <div className="post-image">
         <img src={comment.User.image} />
       </div>
       <div>
