@@ -1,22 +1,23 @@
-import FeedCard from './FeedCard'
 import { useState, useEffect } from 'react'
 import { populateFeed } from '../services/Queries'
+import FeedCard from './FeedCard'
 
 const Feed = ({ user }) => {
-  const [feed, setFeed] = useState([])
-  let posts = []
+  const [feed, setFeed] = useState(null)
+  const [users, setUsers] = useState(null)
 
   const getFeed = async () => {
     if (user) {
       const id = user.id
       const response = await populateFeed(id)
+      let posts = []
       response.data.following.forEach((index) => {
         index.Posts.forEach((post) => {
           if (post) posts.push(post)
         })
       })
-      setFeed(response.data.following)
-      console.log(posts)
+      setUsers(response.data.following)
+      setFeed(posts)
     }
   }
 
@@ -26,15 +27,10 @@ const Feed = ({ user }) => {
 
   return (
     <div className="feed-main">
-      <p>Test</p>
       <div>
-        {posts.length > 0
-          ? posts.map((post) => (
-              <div>
-                <FeedCard post={post} />
-              </div>
-            ))
-          : null}
+        {feed?.map((post) => (
+          <FeedCard post={post} users={users} />
+        ))}
       </div>
     </div>
   )
