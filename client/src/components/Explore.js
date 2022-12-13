@@ -12,8 +12,6 @@ const Explore = () => {
     setPosts(posts.data)
   }
 
-  console.log(posts)
-
   useEffect(() => {
     getExplore()
   }, [])
