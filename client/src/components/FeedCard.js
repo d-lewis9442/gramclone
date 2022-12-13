@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import CommentCard from './CommentCard'
 
 const FeedCard = ({ post, users }) => {
   const [user, setUser] = useState(null)
@@ -12,6 +13,9 @@ const FeedCard = ({ post, users }) => {
     })
   }
   console.log(user)
+
+  let comments = post.Comments
+  console.log(comments)
 
   useEffect(() => {
     getData()
@@ -30,7 +34,17 @@ const FeedCard = ({ post, users }) => {
       <div className="feed-card-image">
         <img src={post.image} alt={post.name} />
       </div>
-      <div></div>
+      <div>
+        <div className="post-header">
+          <p className="username">{user?.username}</p>
+          <p className="body">{post.body}</p>
+        </div>
+        <div>
+          {/* {comments?.map((comment) => (
+            <CommentCard key={comment.id} comment={comment} />
+          ))} */}
+        </div>
+      </div>
     </div>
   )
 }
