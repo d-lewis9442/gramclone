@@ -43,8 +43,6 @@ const ProfileModal = ({
     setToggle(!toggle)
   }
 
-  console.log(toggle)
-
   let comments = selectedPost.Comments
 
   return !toggle ? (
@@ -119,23 +117,39 @@ const ProfileModal = ({
         X
       </h1>
       <div className="modal-div" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <h1>Edit Post</h1>
+        </div>
         <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              onChange={handleChange}
-              value={formValues.image}
-              name="image"
-              type="text"
-              placeholder="Image URL"
-            ></input>
-            <input
-              onChange={handleChange}
-              value={formValues.body}
-              name="body"
-              type="text"
-              placeholder="Caption"
-            ></input>
-            <button type="submit">Submit Changes</button>
+          <form onSubmit={handleSubmit} className="modal-body">
+            <div className="create-form-div">
+              <input
+                onChange={handleChange}
+                value={formValues.image}
+                name="image"
+                type="text"
+                placeholder="Image URL"
+              />
+            </div>
+            <div className="create-form-div">
+              <input
+                onChange={handleChange}
+                value={formValues.body}
+                name="body"
+                type="text"
+                placeholder="Caption"
+              />
+            </div>
+            <div className="create-form-div">
+              <button type="submit">Submit Changes</button>
+              <button
+                onClick={() => {
+                  onClick()
+                }}
+              >
+                Cancel
+              </button>
+            </div>
           </form>
         </div>
       </div>
