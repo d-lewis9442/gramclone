@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { destroyPost } from '../services/Queries'
+import { destroyPost, updatePost } from '../services/Queries'
 import CommentCard from './CommentCard'
 
 const ProfileModal = ({
@@ -10,10 +10,27 @@ const ProfileModal = ({
   userInfo,
   user
 }) => {
+  const initialState = { image: '', body: '' }
   const [toggle, setToggle] = useState(false)
+  const [formValues, setFormValues] = useState(initialState)
 
   if (!show) {
     return null
+  }
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const id = selectedPost.id
+    await updatePost(id, {
+      image: formValues.image,
+      body: formValues.body
+    })
+    setToggle(!toggle)
+    setShow(false)
   }
 
   const handleClick = async () => {
@@ -101,7 +118,27 @@ const ProfileModal = ({
       <h1 onClick={() => onClose()} className="modalX">
         X
       </h1>
-      <div className="modal-div" onClick={(e) => e.stopPropagation()}></div>
+      <div className="modal-div" onClick={(e) => e.stopPropagation()}>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={handleChange}
+              value={formValues.image}
+              name="image"
+              type="text"
+              placeholder="Image URL"
+            ></input>
+            <input
+              onChange={handleChange}
+              value={formValues.body}
+              name="body"
+              type="text"
+              placeholder="Caption"
+            ></input>
+            <button type="submit">Submit Changes</button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }
