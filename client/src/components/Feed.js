@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { populateFeed } from '../services/Queries'
+import { useNavigate } from 'react-router-dom'
 import FeedCard from './FeedCard'
 
 const Feed = ({ user }) => {
   const [feed, setFeed] = useState(null)
   const [users, setUsers] = useState(null)
+  let navigate = useNavigate()
 
   const getFeed = async () => {
     if (user) {
@@ -26,6 +28,10 @@ const Feed = ({ user }) => {
     }
   }
 
+  const viewProfile = (id) => {
+    navigate(`/home/profile/${id}`)
+  }
+
   useEffect(() => {
     getFeed()
   }, [])
@@ -34,7 +40,12 @@ const Feed = ({ user }) => {
     <div className="feed-main">
       <div>
         {feed?.map((post) => (
-          <FeedCard key={post.id} post={post} users={users} />
+          <FeedCard
+            key={post.id}
+            post={post}
+            users={users}
+            onClick={viewProfile}
+          />
         ))}
       </div>
     </div>

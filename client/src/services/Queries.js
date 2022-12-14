@@ -44,3 +44,12 @@ export const userDetails = async (id) => {
     throw error
   }
 }
+
+export const destroyPost = async (id) => {
+  try {
+    const response = await Client.delete(`/posts/${id}`)
+    return response
+  } catch (error) {
+    throw error
+  }
+}

@@ -113,9 +113,14 @@
   background-color: white;
 }
 
-.modal-body form {
+.modal-body{
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.create-form-div{
+  margin: 20px
 }
 
 .modal img{
@@ -127,6 +132,7 @@
   width: 20vw;
   padding-left: 20px;
   overflow: auto;
+  position: relative;
 }
 
 .modal-info img {
@@ -135,6 +141,11 @@
   border-radius: 50%
 }
 
+.post-delete-button {
+  position: absolute;
+  bottom: 1vh;
+  left: 9vw;
+}
 
 .username {
   font-weight: bold;

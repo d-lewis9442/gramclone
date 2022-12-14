@@ -1,13 +1,25 @@
+import { destroyPost } from '../services/Queries'
 import CommentCard from './CommentCard'
 
-const ProfileModal = ({ show, selectedPost, onClose, userInfo }) => {
+const ProfileModal = ({
+  show,
+  setShow,
+  selectedPost,
+  onClose,
+  userInfo,
+  user
+}) => {
   if (!show) {
     return null
   }
 
-  let comments = selectedPost.Comments
+  const handleClick = async () => {
+    const id = parseInt(selectedPost.id)
+    const deletePost = await destroyPost(id)
+    setShow(false)
+  }
 
-  console.log(userInfo)
+  let comments = selectedPost.Comments
 
   return (
     <div className="modal" onClick={() => onClose()}>
@@ -32,9 +44,32 @@ const ProfileModal = ({ show, selectedPost, onClose, userInfo }) => {
               </div>
             </div>
             <hr></hr>
-            {/* {comments?.map((comment) => (
-              <CommentCard key={comment.id} comment={comment} />
-            ))} */}
+            <div>
+              {comments?.map((comment) => (
+                <CommentCard
+                  key={comment.id}
+                  comment={comment}
+                  userInfo={userInfo}
+                />
+              ))}
+            </div>
+            <div className="post-delete-button">
+              {selectedPost.userId === user.id ? (
+                <button
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        'Are you sure you want to delete this post?'
+                      )
+                    ) {
+                      handleClick()
+                    }
+                  }}
+                >
+                  Delete
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
       ) : null}

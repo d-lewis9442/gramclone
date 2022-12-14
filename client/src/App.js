@@ -60,14 +60,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route
             path="/home/*"
-            element={
-              <Home
-                user={user}
-                show={show}
-                setShow={setShow}
-                userInfo={userInfo}
-              />
-            }
+            element={<Home user={user} show={show} setShow={setShow} />}
           />
         </Routes>
       </section>

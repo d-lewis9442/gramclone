@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { newPost } from '../services/Queries'
 
 const Create = ({ show, onClose, user, setShow }) => {
   const initialState = { image: '', body: '' }
   const [formValues, setFormValues] = useState(initialState)
+  let navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -18,6 +20,7 @@ const Create = ({ show, onClose, user, setShow }) => {
     })
     setFormValues(initialState)
     setShow(false)
+    navigate(`/home/profile/${user.id}`)
   }
 
   if (!show) {
@@ -31,27 +34,33 @@ const Create = ({ show, onClose, user, setShow }) => {
       </h1>
       <div className="modal-div" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h1>Create</h1>
+          <h1>Create Post</h1>
         </div>
-        <div className="modal-body">
-          <form onSubmit={handleSubmit}>
-            <input
-              onChange={handleChange}
-              value={formValues.image}
-              name="image"
-              type="text"
-              placeholder="Image URL"
-              required
-            />
-            <input
-              onChange={handleChange}
-              value={formValues.body}
-              name="body"
-              type="text"
-              placeholder="Caption"
-              required
-            />
-            <button type="submit">Create Post</button>
+        <div>
+          <form onSubmit={handleSubmit} className="modal-body">
+            <div className="create-form-div">
+              <input
+                onChange={handleChange}
+                value={formValues.image}
+                name="image"
+                type="text"
+                placeholder="Image URL"
+                required
+              />
+            </div>
+            <div className="create-form-div">
+              <input
+                onChange={handleChange}
+                value={formValues.body}
+                name="body"
+                type="text"
+                placeholder="Caption"
+                required
+              />
+            </div>
+            <div className="create-form-div">
+              <button type="submit">Create Post</button>
+            </div>
           </form>
         </div>
       </div>

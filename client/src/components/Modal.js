@@ -5,8 +5,6 @@ const Modal = ({ show, selectedPost, onClose }) => {
     return null
   }
 
-  console.log(selectedPost)
-
   let comments = selectedPost.Comments
 
   return (

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getPostDetails } from '../services/Queries'
 import CommentCard from './CommentCard'
 
-const FeedCard = ({ post }) => {
+const FeedCard = ({ post, onClick }) => {
   const [data, setData] = useState(null)
 
   const postDetails = async () => {
@@ -20,7 +20,12 @@ const FeedCard = ({ post }) => {
   }, [])
 
   return (
-    <div className="feed-card">
+    <div
+      className="feed-card"
+      onClick={() => {
+        onClick(data.User.id)
+      }}
+    >
       <div className="post-header">
         <div className="post-image">
           <img src={data?.User.image} />
