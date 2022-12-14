@@ -10,12 +10,17 @@ const Feed = ({ user }) => {
     if (user) {
       const id = user.id
       const response = await populateFeed(id)
+      const shuffle = (array) => {
+        array.sort(() => Math.random() - 0.5)
+      }
       let posts = []
       response.data.following.forEach((index) => {
         index.Posts.forEach((post) => {
           if (post) posts.push(post)
         })
+        shuffle(posts)
       })
+
       setUsers(response.data.following)
       setFeed(posts)
     }

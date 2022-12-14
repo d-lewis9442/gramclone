@@ -26,3 +26,12 @@ export const getPostDetails = async (id) => {
     throw error
   }
 }
+
+export const newPost = async (id, data) => {
+  try {
+    const response = await Client.post(`/posts/${id}`, data)
+    return response
+  } catch (error) {
+    throw error
+  }
+}

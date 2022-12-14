@@ -10,6 +10,7 @@ import Nav from './components/Nav'
 function App() {
   let navigate = useNavigate()
   const [user, setUser] = useState(null)
+  const [show, setShow] = useState(false)
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -32,13 +33,16 @@ function App() {
   return (
     <div className="main-grid">
       <section className="sticky-nav">
-        <Nav logOut={logOut} user={user} />
+        <Nav logOut={logOut} user={user} setShow={setShow} />
       </section>
       <section className="home">
         <Routes>
           <Route path="/" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/home/*" element={<Home user={user} />} />
+          <Route
+            path="/home/*"
+            element={<Home user={user} show={show} setShow={setShow} />}
+          />
         </Routes>
       </section>
     </div>

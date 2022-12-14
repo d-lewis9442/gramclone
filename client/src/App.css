@@ -4,13 +4,15 @@
 
 .main-grid {
   display: grid;
-  grid-template-columns: 6vw 94vw;
+  grid-template-columns: 1fr 19fr;
 }
 
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 50px;
+  margin-top: 10px;
 }
 
 .feed-main {
@@ -54,21 +56,23 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 6vw;
+  justify-content: flex-start;
+
+
+  height: 100%;
+  width: 8vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid black;
+  max-width: 8vw;
 }
 
 .navlink {
   max-width: 3vw;
-  margin: 5px;
-}
-
-.sticky-nav {
-  max-width: 6vw;
-  position: sticky;
-  left: 0;
-  height: 100vh;
-  border-right: 1px solid black;
+  margin-top: 20px;
+  margin-left: 2.5vw;
+  margin-bottom: 20px;
 }
 
 .modal {
@@ -79,6 +83,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -96,6 +101,21 @@
   width: auto;
   height: 50vh;
   background-color: white;
+}
+
+.modal-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50vw;
+  height: 50vh;
+  background-color: white;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
 }
 
 .modal img{

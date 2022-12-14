@@ -8,19 +8,22 @@ const Modal = ({ show, selectedPost, onClose }) => {
   let comments = selectedPost.Comments
 
   return (
-    <div className="modal">
+    <div className="modal" onClick={() => onClose()}>
       <h1 onClick={() => onClose()} className="modalX">
         X
       </h1>
       {selectedPost ? (
-        <div className="modal-content">
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-image">
             <img src={selectedPost.image} alt={selectedPost.name} />
           </div>
           <div className="modal-info">
             <div className="comment">
               <div classname="post-image">
-                <img src={selectedPost.User.image} />
+                <img
+                  src={selectedPost.User.image}
+                  alt={selectedPost.User.username}
+                />
               </div>
               <div>
                 <p className="username">{selectedPost.User.username}</p>
