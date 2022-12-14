@@ -53,3 +53,12 @@ export const destroyPost = async (id) => {
     throw error
   }
 }
+
+export const updatePost = async (id, data) => {
+  try {
+    const response = await Client.put(`/posts/${id}`, data)
+    return response
+  } catch (error) {
+    throw error
+  }
+}

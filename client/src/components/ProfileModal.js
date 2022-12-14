@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { destroyPost } from '../services/Queries'
 import CommentCard from './CommentCard'
 
@@ -9,6 +10,8 @@ const ProfileModal = ({
   userInfo,
   user
 }) => {
+  const [toggle, setToggle] = useState(false)
+
   if (!show) {
     return null
   }
@@ -19,9 +22,15 @@ const ProfileModal = ({
     setShow(false)
   }
 
+  const onClick = async () => {
+    setToggle(!toggle)
+  }
+
+  console.log(toggle)
+
   let comments = selectedPost.Comments
 
-  return (
+  return !toggle ? (
     <div className="modal" onClick={() => onClose()}>
       <h1 onClick={() => onClose()} className="modalX">
         X
@@ -72,7 +81,13 @@ const ProfileModal = ({
                     </button>
                   </div>
                   <div className="post-delete-div">
-                    <button>Edit</button>
+                    <button
+                      onClick={() => {
+                        onClick()
+                      }}
+                    >
+                      Edit
+                    </button>
                   </div>
                 </div>
               ) : null}
@@ -80,6 +95,13 @@ const ProfileModal = ({
           </div>
         </div>
       ) : null}
+    </div>
+  ) : (
+    <div className="modal">
+      <h1 onClick={() => onClose()} className="modalX">
+        X
+      </h1>
+      <div className="modal-div" onClick={(e) => e.stopPropagation()}></div>
     </div>
   )
 }
