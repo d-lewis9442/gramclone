@@ -1,13 +1,13 @@
 import CommentCard from './CommentCard'
 
-const Modal = ({ show, selectedPost, onClose }) => {
+const ProfileModal = ({ show, selectedPost, onClose, userInfo }) => {
   if (!show) {
     return null
   }
 
-  console.log(selectedPost)
-
   let comments = selectedPost.Comments
+
+  console.log(userInfo)
 
   return (
     <div className="modal" onClick={() => onClose()}>
@@ -22,22 +22,19 @@ const Modal = ({ show, selectedPost, onClose }) => {
           <div className="modal-info">
             <div className="comment">
               <div className="post-image">
-                <img
-                  src={selectedPost.User.image}
-                  alt={selectedPost.User.username}
-                />
+                <img src={userInfo.image} alt={userInfo.username} />
               </div>
               <div>
-                <p className="username">{selectedPost.User.username}</p>
+                <p className="username">{userInfo.username}</p>
               </div>
               <div>
                 <p className="body">{selectedPost.body}</p>
               </div>
             </div>
             <hr></hr>
-            {comments?.map((comment) => (
+            {/* {comments?.map((comment) => (
               <CommentCard key={comment.id} comment={comment} />
-            ))}
+            ))} */}
           </div>
         </div>
       ) : null}
@@ -45,4 +42,4 @@ const Modal = ({ show, selectedPost, onClose }) => {
   )
 }
 
-export default Modal
+export default ProfileModal

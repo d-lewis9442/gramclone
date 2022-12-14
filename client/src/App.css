@@ -169,3 +169,39 @@
   height: 35px;
   border-radius: 50%;
 }
+
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  display: flex;
+  width: 80vw;
+  margin-bottom: 40px;
+}
+
+.profile-img-wrapper {
+  width: 200px;
+}
+
+.profile-img-wrapper img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile-username {
+  font-size: 2em;
+}
+
+.stats {
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.profile-feed {
+  display: flex;
+  flex-wrap: wrap;
+}

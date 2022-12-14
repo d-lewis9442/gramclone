@@ -13,8 +13,7 @@ const GetUserById = async (req, res) => {
   try {
     let id = parseInt(req.params.user_id)
     const user = await User.findByPk(id, {
-      include: [{ all: true, nested: true }],
-      order: [['createdAt', 'DESC']]
+      include: [{ all: true, nested: true }]
     })
     res.send(user)
   } catch (error) {

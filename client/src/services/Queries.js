@@ -35,3 +35,12 @@ export const newPost = async (id, data) => {
     throw error
   }
 }
+
+export const userDetails = async (id) => {
+  try {
+    const response = await Client.get(`/user/${id}`)
+    return response
+  } catch (error) {
+    throw error
+  }
+}
