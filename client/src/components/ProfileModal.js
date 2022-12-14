@@ -142,6 +142,8 @@ const ProfileModal = ({
             </div>
             <div className="create-form-div">
               <button type="submit">Submit Changes</button>
+            </div>
+            <div className="create-form-div">
               <button
                 onClick={() => {
                   onClick()
