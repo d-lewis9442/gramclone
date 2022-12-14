@@ -55,19 +55,26 @@ const ProfileModal = ({
             </div>
             <div className="post-delete-button">
               {selectedPost.userId === user.id ? (
-                <button
-                  onClick={() => {
-                    if (
-                      window.confirm(
-                        'Are you sure you want to delete this post?'
-                      )
-                    ) {
-                      handleClick()
-                    }
-                  }}
-                >
-                  Delete
-                </button>
+                <div>
+                  <div className="post-delete-div">
+                    <button
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            'Are you sure you want to delete this post?'
+                          )
+                        ) {
+                          handleClick()
+                        }
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                  <div className="post-delete-div">
+                    <button>Edit</button>
+                  </div>
+                </div>
               ) : null}
             </div>
           </div>

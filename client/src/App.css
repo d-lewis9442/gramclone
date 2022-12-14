@@ -72,7 +72,12 @@
   max-width: 3vw;
   margin-top: 20px;
   margin-left: 2.5vw;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.navlink img {
+  max-width: 3vw;
+  border-radius: 50%;
 }
 
 .modal {
@@ -145,6 +150,14 @@
   position: absolute;
   bottom: 1vh;
   left: 9vw;
+  
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.post-delete-div {
+  margin-top: 1vh
 }
 
 .username {

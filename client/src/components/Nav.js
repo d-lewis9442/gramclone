@@ -61,7 +61,7 @@ const Nav = ({ logOut, user, setShow, userInfo }) => {
           </div>
         ) : null}
         {user && userInfo ? (
-          <div className="post-image navlink">
+          <div className="navlink">
             <Link to={`/home/profile/${user.id}`}>
               <img src={userInfo.image} alt={userInfo.username} />
             </Link>
