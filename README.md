@@ -10,7 +10,7 @@
 
 ### **_Description_**
 
-#### Gramclone is a full-stack PERN application of Instagram. Built with React front end and PostgreSQL backend.
+#### Gramclone is a full-stack PERN application clone of Instagram. Built with a React front end and PostgreSQL backend.
 
 ---
 
@@ -37,15 +37,15 @@
 
 ##### Feed
 
-![feed]()
+![feed](https://i.ibb.co/5W9ZTVD/gramfeed1.png)
 
 ##### Create Page
 
-![createpage]()
+![createpage](https://i.ibb.co/8jBZ7SQ/gramcreate1.png)
 
 ##### Profile Page
 
-![profile]()
+![profile](https://i.ibb.co/RBZjhTW/gramprofile1.png)
 
 ---
 
