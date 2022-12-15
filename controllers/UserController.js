@@ -1,4 +1,4 @@
-const { User, UserFollower } = require('../models')
+const { User, UserFollower, Post, Comment } = require('../models')
 
 const GetAllUsers = async (req, res) => {
   try {
@@ -14,6 +14,13 @@ const GetUserById = async (req, res) => {
     let id = parseInt(req.params.user_id)
     const user = await User.findByPk(id, {
       include: [{ all: true, nested: true }]
+      // include: [
+      //   {
+      //     model: User,
+      //     as: 'following',
+      //     include: [{ model: Post, include: [{ model: Comment }] }]
+      //   }
+      // ]
     })
     res.send(user)
   } catch (error) {

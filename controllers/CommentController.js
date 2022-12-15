@@ -28,13 +28,13 @@ const GetCommentDetails = async (req, res) => {
 const UpdateComment = async (req, res) => {
   try {
     let commentId = parseInt(req.params.comment_id)
-    let updatedComment = await comment.update(req.body, {
+    let updatedComment = await Comment.update(req.body, {
       where: { id: commentId },
       returning: true
     })
     res.send(updatedComment)
   } catch (error) {
-    throw errror
+    throw error
   }
 }
 
@@ -48,9 +48,19 @@ const DeleteComment = async (req, res) => {
   }
 }
 
+const GetComments = async (req, res) => {
+  try {
+    const comments = await Comment.findAll()
+    res.send(comments)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   CreateComment,
   GetCommentDetails,
   UpdateComment,
-  DeleteComment
+  DeleteComment,
+  GetComments
 }
