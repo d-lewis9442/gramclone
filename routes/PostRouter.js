@@ -2,6 +2,7 @@ const router = require('express').Router()
 const middleware = require('../middleware')
 const controller = require('../controllers/PostController')
 
+router.get('/all', controller.GetPosts)
 router.get('/recents', controller.GetRecentPosts)
 router.get('/:post_id', controller.GetPostDetails)
 router.post(

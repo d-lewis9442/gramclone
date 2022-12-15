@@ -1,4 +1,4 @@
-const { Post, Comment, User } = require('../models')
+const { Post, Comment } = require('../models')
 
 const GetRecentPosts = async (req, res) => {
   try {
@@ -60,10 +60,23 @@ const DeletePost = async (req, res) => {
   }
 }
 
+const GetPosts = async (req, res) => {
+  try {
+    const posts = await Post.findAll({
+      include: [{ model: Comment }],
+      order: [['createdAt', 'DESC']]
+    })
+    res.send(posts)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   CreatePost,
   GetPostDetails,
   GetRecentPosts,
   UpdatePost,
-  DeletePost
+  DeletePost,
+  GetPosts
 }
